@@ -8,11 +8,9 @@ export class LoginPage {
         cy.visit('/login');
     }
     login(email: string, password: string) {
-        cy.get(this.emailInput).type(email);
-        cy.get(this.passwordInput).type(password);
+        cy.get(this.emailInput).clear().type(email);
+        cy.get(this.passwordInput).clear().type(password);
         cy.get(this.loginBtn).click();
     }
-    clcikLogin() {
-        cy.get(this.loginBtn).click();
-    }
+    
 }
