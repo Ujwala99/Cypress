@@ -1,10 +1,18 @@
 export class ProductPage {
+    selectJewelry = '.create-it-yourself-jewelry'
+    Material = '#product_attribute_71_9_15'
+    notification = '.bar-notification-error'
+    addToCart = '#add-to-cart-button-71'
 
-    addToCartBtn = '#add-to-cart-button-31';
-    successBar = '.bar-notification.success';
+    visit() {
+    cy.visit('/login'); }
 
-    addToCart() {
-        cy.get(this.addToCartBtn).click();
+    Shop() {
+        cy.contains('Jewelry').click();
+        cy.get(this.selectJewelry).click();
+        cy.get(this.Material).select('Gold');
+        cy.get(this.addToCart).click();
+        cy.get(this.notification).should('be.visible');
+       
+
     }
-    
-}
